@@ -115,8 +115,8 @@ class ReportStatusParser(object):
                 else:
                     ok.add(ref)
                 ref_status[ref] = status
-            raise UpdateRefsError('%s failed to update' %
-                                  ', '.join([ref for ref in ref_status
+            raise UpdateRefsError(", ".join(['%s failed to update: %s'%(ref,stat)
+                                   for ref, stat in ref_status.iteritems()
                                              if ref not in ok]),
                                   ref_status=ref_status)
 
